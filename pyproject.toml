@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "sitecustomize-entrypoints"
+version = "0.1.0"
+description = ""
+authors = ["Dos Moonen <d.moonen@nki.nl>"]
+readme = "README.md"
+homepage = "https://github.com/Darsstar/sitecustomize-entrypoints"
+repository = "https://github.com/Darsstar/sitecustomize-entrypoints"
+packages = [{include = "sitecustomize", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
