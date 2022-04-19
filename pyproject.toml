@@ -9,8 +9,35 @@ repository = "https://github.com/Darsstar/sitecustomize-entrypoints"
 packages = [{include = "sitecustomize", from = "src"}]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.7"
 
+
+[tool.vendoring]
+destination = "src/sitecustomize/_vendor/"
+requirements = "src/sitecustomize/_vendor/vendor.txt"
+namespace = "sitecustomize._vendor"
+
+protected-files = ["__init__.py", "README.rst", "vendor.txt"]
+
+[tool.vendoring.transformations]
+drop = [
+  # contains unnecessary scripts
+  "bin/",
+]
+
+[tool.vendoring.typing-stubs]
+six = []
+distro = []
+
+[tool.vendoring.license.directories]
+
+[tool.vendoring.license.fallback-urls]
+
+[tool.poetry-dynamic-versioning]
+enable = true
+
+[tool.poetry-dynamic-versioning.substitution]
+files = ["src/*/__init__.py"]
 
 [build-system]
 requires = ["poetry-core"]
