@@ -5,3 +5,7 @@
 bin
 lib
 pyvenv.cfg
+
+/var/
+
+__pycache__
