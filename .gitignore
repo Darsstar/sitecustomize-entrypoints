@@ -1,2 +1,7 @@
 /dist/
 /.venv/
+
+# symlinks to .venv
+bin
+lib
+pyvenv.cfg
