@@ -6,10 +6,20 @@ authors = ["Dos Moonen <d.moonen@nki.nl>"]
 readme = "README.md"
 homepage = "https://github.com/Darsstar/sitecustomize-entrypoints"
 repository = "https://github.com/Darsstar/sitecustomize-entrypoints"
-packages = [{include = "sitecustomize", from = "src"}]
+packages = [{ include = "sitecustomize", from = "src" }]
 
 [tool.poetry.dependencies]
 python = "^3.7"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.1"
+
+
+[tool.pytest.ini_options]
+addopts = "--junit-xml='var/coverage/pytest.xml'"
+cache_dir = "var/cache/pytest"
+testpaths = ["tests"]
 
 
 [tool.vendoring]
