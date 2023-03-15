@@ -15,6 +15,8 @@ Unreleased
 
 - Add changelog. [WouterVH]
 
+- Add license. [WouterVH]
+
 - Complete project-metadata in ``pyproject.toml``. [WouterVH]
 
 - Avoid breaking when a registered entrypoint throws an ``AttributeError``. [WouterVH]
