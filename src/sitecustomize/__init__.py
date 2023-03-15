@@ -1,10 +1,9 @@
 """sitecustomize."""
 __version__ = "1.0.0"  # poetry-dynamic-versioning substitutes this
-import typing as tp
 import warnings
 
 from sitecustomize._utils import SimpleWarnings, most_recent_unique_entries
-from sitecustomize._vendor.importlib_metadata import entry_points, EntryPoints
+from sitecustomize._vendor.importlib_metadata import entry_points
 
 
 with SimpleWarnings():
@@ -13,13 +12,11 @@ with SimpleWarnings():
     for ep in most_recent_unique_entries(eps):
         try:
             fn = ep.load()
-
         except ModuleNotFoundError:
             warnings.warn(
                 f"Registered entrypoint {ep.name}: Module {ep.module} not found."
             )
             continue
-
         except AttributeError:
             warnings.warn(
                 f"Registered entrypoint {ep.name}: Attribute {ep.name} not found."

@@ -2,6 +2,8 @@
 import typing as tp
 import warnings
 
+from ._vendor.importlib_metadata import EntryPoints
+
 
 class SimpleWarnings:
     def __enter__(self):
@@ -28,6 +30,7 @@ def most_recent_unique_entries(
         >>> most_recent_unique_entries([1, 2, 3, 1])
           [2, 3, 1]
 
-    This allows you to override the ordering of a registered entrypoint in your own pyproject.toml.
+    This allows you to override the ordering of a registered entrypoint
+    in your own pyproject.toml.
     """
     return {ep.name: ep for ep in ordered_list}.values()

@@ -12,7 +12,7 @@ def test_import_sitecustomize():
 
 
 def most_recent_unique_entries():
-    from sitecustomize import most_recent_unique_entries
+    from sitecustomize._utils import most_recent_unique_entries
 
     assert most_recent_unique_entries([]) == []
     assert most_recent_unique_entries([1]) == [1]
