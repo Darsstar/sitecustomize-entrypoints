@@ -71,6 +71,58 @@ jupyter = ["ipython (>=7.8.0)", "tokenize-rt (>=3.2.0)"]
 uvloop = ["uvloop (>=0.15.2)"]
 
 [[package]]
+name = "build"
+version = "0.10.0"
+description = "A simple, correct Python build frontend"
+category = "dev"
+optional = false
+python-versions = ">= 3.7"
+files = [
+    {file = "build-0.10.0-py3-none-any.whl", hash = "sha256:af266720050a66c893a6096a2f410989eeac74ff9a68ba194b3f6473e8e26171"},
+    {file = "build-0.10.0.tar.gz", hash = "sha256:d5b71264afdb5951d6704482aac78de887c80691c52b88a9ad195983ca2c9269"},
+]
+
+[package.dependencies]
+colorama = {version = "*", markers = "os_name == \"nt\""}
+importlib-metadata = {version = ">=0.22", markers = "python_version < \"3.8\""}
+packaging = ">=19.0"
+pyproject_hooks = "*"
+tomli = {version = ">=1.1.0", markers = "python_version < \"3.11\""}
+
+[package.extras]
+docs = ["furo (>=2021.08.31)", "sphinx (>=4.0,<5.0)", "sphinx-argparse-cli (>=1.5)", "sphinx-autodoc-typehints (>=1.10)"]
+test = ["filelock (>=3)", "pytest (>=6.2.4)", "pytest-cov (>=2.12)", "pytest-mock (>=2)", "pytest-rerunfailures (>=9.1)", "pytest-xdist (>=1.34)", "setuptools (>=42.0.0)", "setuptools (>=56.0.0)", "toml (>=0.10.0)", "wheel (>=0.36.0)"]
+typing = ["importlib-metadata (>=5.1)", "mypy (==0.991)", "tomli", "typing-extensions (>=3.7.4.3)"]
+virtualenv = ["virtualenv (>=20.0.35)"]
+
+[[package]]
+name = "certifi"
+version = "2022.12.7"
+description = "Python package for providing Mozilla's CA Bundle."
+category = "dev"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "certifi-2022.12.7-py3-none-any.whl", hash = "sha256:4ad3232f5e926d6718ec31cfc1fcadfde020920e278684144551c91769c7bc18"},
+    {file = "certifi-2022.12.7.tar.gz", hash = "sha256:35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"},
+]
+
+[[package]]
+name = "charset-normalizer"
+version = "2.0.12"
+description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
+category = "dev"
+optional = false
+python-versions = ">=3.5.0"
+files = [
+    {file = "charset-normalizer-2.0.12.tar.gz", hash = "sha256:2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"},
+    {file = "charset_normalizer-2.0.12-py3-none-any.whl", hash = "sha256:6881edbebdb17b39b4eaaa821b438bf6eddffb4468cf344f09f89def34a8b1df"},
+]
+
+[package.extras]
+unicode-backport = ["unicodedata2"]
+
+[[package]]
 name = "click"
 version = "8.1.3"
 description = "Composable command line interface toolkit"
@@ -96,6 +148,18 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7
 files = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
     {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
+]
+
+[[package]]
+name = "docutils"
+version = "0.19"
+description = "Docutils -- Python Documentation Utilities"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "docutils-0.19-py3-none-any.whl", hash = "sha256:5e1de4d849fee02c63b040a4a3fd567f4ab104defd8a5511fbbc24a8a017efbc"},
+    {file = "docutils-0.19.tar.gz", hash = "sha256:33995a6753c30b7f577febfc2c50411fec6aac7f7ffeb7c4cfe5991072dcf9e6"},
 ]
 
 [[package]]
@@ -167,6 +231,18 @@ TOMLi = {version = "*", markers = "python_version < \"3.11\""}
 
 [package.extras]
 dev = ["pyTest", "pyTest-cov"]
+
+[[package]]
+name = "idna"
+version = "3.4"
+description = "Internationalized Domain Names in Applications (IDNA)"
+category = "dev"
+optional = false
+python-versions = ">=3.5"
+files = [
+    {file = "idna-3.4-py3-none-any.whl", hash = "sha256:90b77e79eaa3eba6de819a0c442c0b4ceefc341a7a2ab77d7562bf49f425c5c2"},
+    {file = "idna-3.4.tar.gz", hash = "sha256:814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"},
+]
 
 [[package]]
 name = "importlib-metadata"
@@ -359,6 +435,60 @@ files = [
 ]
 
 [[package]]
+name = "pygments"
+version = "2.14.0"
+description = "Pygments is a syntax highlighting package written in Python."
+category = "dev"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "Pygments-2.14.0-py3-none-any.whl", hash = "sha256:fa7bd7bd2771287c0de303af8bfdfc731f51bd2c6a47ab69d117138893b82717"},
+    {file = "Pygments-2.14.0.tar.gz", hash = "sha256:b3ed06a9e8ac9a9aae5a6f5dbe78a8a58655d17b43b93c078f094ddc476ae297"},
+]
+
+[package.extras]
+plugins = ["importlib-metadata"]
+
+[[package]]
+name = "pyproject-hooks"
+version = "1.0.0"
+description = "Wrappers to call pyproject.toml-based build backend hooks."
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "pyproject_hooks-1.0.0-py3-none-any.whl", hash = "sha256:283c11acd6b928d2f6a7c73fa0d01cb2bdc5f07c57a2eeb6e83d5e56b97976f8"},
+    {file = "pyproject_hooks-1.0.0.tar.gz", hash = "sha256:f271b298b97f5955d53fb12b72c1fb1948c22c1a6b70b315c54cedaca0264ef5"},
+]
+
+[package.dependencies]
+tomli = {version = ">=1.1.0", markers = "python_version < \"3.11\""}
+
+[[package]]
+name = "pyroma"
+version = "4.2"
+description = "Test your project's packaging friendliness"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "pyroma-4.2-py3-none-any.whl", hash = "sha256:a59854b6f8a72b55384cc1de42410e5c5ac59d0c40a92e84fd8364aa6cec3e37"},
+    {file = "pyroma-4.2.tar.gz", hash = "sha256:6c727dc4a7a10e12274faed5fb47ebd499ca0821995befec98e3cfcaf1e7383c"},
+]
+
+[package.dependencies]
+build = ">=0.7.0"
+docutils = "*"
+packaging = "*"
+pygments = "*"
+requests = "*"
+setuptools = ">=42"
+trove-classifiers = ">=2022.6.26"
+
+[package.extras]
+test = ["setuptools (>=60)", "zest.releaser[recommended]"]
+
+[[package]]
 name = "pytest"
 version = "7.2.1"
 description = "pytest: simple powerful testing with Python"
@@ -384,6 +514,45 @@ tomli = {version = ">=1.0.0", markers = "python_version < \"3.11\""}
 testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "pygments (>=2.7.2)", "requests", "xmlschema"]
 
 [[package]]
+name = "requests"
+version = "2.27.1"
+description = "Python HTTP for Humans."
+category = "dev"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
+files = [
+    {file = "requests-2.27.1-py2.py3-none-any.whl", hash = "sha256:f22fa1e554c9ddfd16e6e41ac79759e17be9e492b3587efa038054674760e72d"},
+    {file = "requests-2.27.1.tar.gz", hash = "sha256:68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"},
+]
+
+[package.dependencies]
+certifi = ">=2017.4.17"
+charset-normalizer = {version = ">=2.0.0,<2.1.0", markers = "python_version >= \"3\""}
+idna = {version = ">=2.5,<4", markers = "python_version >= \"3\""}
+urllib3 = ">=1.21.1,<1.27"
+
+[package.extras]
+socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
+use-chardet-on-py3 = ["chardet (>=3.0.2,<5)"]
+
+[[package]]
+name = "setuptools"
+version = "67.6.0"
+description = "Easily download, build, install, upgrade, and uninstall Python packages"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "setuptools-67.6.0-py3-none-any.whl", hash = "sha256:b78aaa36f6b90a074c1fa651168723acbf45d14cb1196b6f02c0fd07f17623b2"},
+    {file = "setuptools-67.6.0.tar.gz", hash = "sha256:2ee892cd5f29f3373097f5a814697e397cf3ce313616df0af11231e2ad118077"},
+]
+
+[package.extras]
+docs = ["furo", "jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-hoverxref (<2)", "sphinx-inline-tabs", "sphinx-lint", "sphinx-notfound-page (==0.8.3)", "sphinx-reredirects", "sphinxcontrib-towncrier"]
+testing = ["build[virtualenv]", "filelock (>=3.4.0)", "flake8 (<5)", "flake8-2020", "ini2toml[lite] (>=0.9)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "pip (>=19.1)", "pip-run (>=8.8)", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)", "pytest-perf", "pytest-timeout", "pytest-xdist", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel"]
+testing-integration = ["build[virtualenv]", "filelock (>=3.4.0)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "pytest", "pytest-enabler", "pytest-xdist", "tomli", "virtualenv (>=13.0.0)", "wheel"]
+
+[[package]]
 name = "tomli"
 version = "2.0.1"
 description = "A lil' TOML parser"
@@ -393,6 +562,18 @@ python-versions = ">=3.7"
 files = [
     {file = "tomli-2.0.1-py3-none-any.whl", hash = "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc"},
     {file = "tomli-2.0.1.tar.gz", hash = "sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"},
+]
+
+[[package]]
+name = "trove-classifiers"
+version = "2023.3.9"
+description = "Canonical source for classifiers on PyPI (pypi.org)."
+category = "dev"
+optional = false
+python-versions = "*"
+files = [
+    {file = "trove-classifiers-2023.3.9.tar.gz", hash = "sha256:ee42f2f8c1d4bcfe35f746e472f07633570d485fab45407effc0379270a3bb03"},
+    {file = "trove_classifiers-2023.3.9-py3-none-any.whl", hash = "sha256:06fd10c95d285e7ddebd59e6a4ba299f03d7417d38d369248a4a40c9754a68fa"},
 ]
 
 [[package]]
@@ -442,6 +623,23 @@ files = [
 ]
 
 [[package]]
+name = "urllib3"
+version = "1.26.15"
+description = "HTTP library with thread-safe connection pooling, file post, and more."
+category = "dev"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
+files = [
+    {file = "urllib3-1.26.15-py2.py3-none-any.whl", hash = "sha256:aa751d169e23c7479ce47a0cb0da579e3ede798f994f5816a74e4f4500dcea42"},
+    {file = "urllib3-1.26.15.tar.gz", hash = "sha256:8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"},
+]
+
+[package.extras]
+brotli = ["brotli (>=1.0.9)", "brotlicffi (>=0.8.0)", "brotlipy (>=0.6.0)"]
+secure = ["certifi", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "ipaddress", "pyOpenSSL (>=0.14)", "urllib3-secure-extra"]
+socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
+
+[[package]]
 name = "zipp"
 version = "3.15.0"
 description = "Backport of pathlib-compatible object wrapper for zip files"
@@ -459,5 +657,5 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 
 [metadata]
 lock-version = "2.0"
-python-versions = "^3.7"
-content-hash = "e577d9a360720216aab37f67d1adc611f606883acfcdd3f244dcad922d3f8bf4"
+python-versions = ">=3.7.2"
+content-hash = "02d491865860cdc6dc9837fff16d3d5ba25455445bbd00d85c956d62406b0232"
