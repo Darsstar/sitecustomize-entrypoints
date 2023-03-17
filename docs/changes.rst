@@ -6,7 +6,7 @@ Changelog
 Unreleased
 ----------
 
-- Use a constant ``ENTRYPOINT_NAME``. [WouterVH]
+- Use a constant ``ENTRYPOINT_GROUPNAME``. [WouterVH]
 
 - Add ``print_entrypoints``-function to easily output a list an registered entrypoints. [WouterVH]
 

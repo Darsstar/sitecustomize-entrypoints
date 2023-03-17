@@ -35,7 +35,7 @@ def fifo_filter(
     return list(fifo_dict.values())
 
 
-class SimpleWarnings:
+class SimpleWarning:
     def __enter__(self):
         self.old_format = warnings.formatwarning
         warnings.formatwarning = self.simple_warning_format
@@ -45,5 +45,8 @@ class SimpleWarnings:
         warnings.formatwarning = self.old_format
 
     @staticmethod
-    def simple_warning_format(msg, *args, **kwargs):
-        return f"Warning from sitecustomize.py: {msg}\n"
+    # def simple_warning_format(msg, *args, **kwargs):
+    def simple_warning_format(msg, category, filename, lineno, file=None, line=None):
+        """Simple warning-formatting."""
+        # return f"Warning from sitecustomize.py: {msg}\n"
+        return f"{category}: Warning from sitecustomize.py: {msg}\n"

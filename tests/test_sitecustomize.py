@@ -11,6 +11,12 @@ def test_import_sitecustomize():
         assert False
 
 
+def test_constant():
+    from sitecustomize import ENTRYPOINT_GROUPNAME
+
+    assert ENTRYPOINT_GROUPNAME == "sitecustomize"
+
+
 def test_cancel():
     from sitecustomize import cancel
 

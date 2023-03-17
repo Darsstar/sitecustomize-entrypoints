@@ -3,13 +3,13 @@ __version__ = "1.0.0"  # poetry-dynamic-versioning substitutes this
 import warnings
 
 import sitecustomize._utils as utils
-# from sitecustomize._utils import SimpleWarnings, fifo_filter
+# from sitecustomize._utils import SimpleWarning, fifo_filter
 from sitecustomize._vendor.importlib_metadata import entry_points
 
-ENTRYPOINT_NAME = "sitecustomize"
+ENTRYPOINT_GROUPNAME = "sitecustomize"
 
-with utils.SimpleWarnings():
-    eps = entry_points(group=ENTRYPOINT_NAME)
+with utils.SimpleWarning():
+    eps = entry_points(group=ENTRYPOINT_GROUPNAME)
 
     for ep in utils.fifo_filter(eps):
         try:
@@ -36,7 +36,7 @@ with utils.SimpleWarnings():
 
 
 def cancel() -> None:
-    """No-op function to cancel registered entypoints.
+    """No-op function to cancel registered entrypoints.
 
     Imagine your project depends on a package that registers a sitecustomize-entrypoint:
 
@@ -65,7 +65,7 @@ def cancel() -> None:
     Therefore we advice to use integer-prefixes.
     """
 
-def print_entrypoints(group_name: str = ENTRYPOINT_NAME, filtered: bool = False):
+def print_entrypoints(group_name: str = ENTRYPOINT_GROUPNAME, filtered: bool = False):
     """print registered entrypoints."""
     eps = entry_points(group=group_name)
 
