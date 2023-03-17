@@ -2,16 +2,15 @@
 __version__ = "1.0.0"  # poetry-dynamic-versioning substitutes this
 import warnings
 
-import sitecustomize._utils as utils
-# from sitecustomize._utils import SimpleWarning, fifo_filter
+from sitecustomize._utils import SimpleWarning, fifo_filter
 from sitecustomize._vendor.importlib_metadata import entry_points
 
 ENTRYPOINT_GROUPNAME = "sitecustomize"
 
-with utils.SimpleWarning():
+with SimpleWarning():
     eps = entry_points(group=ENTRYPOINT_GROUPNAME)
 
-    for ep in utils.fifo_filter(eps):
+    for ep in fifo_filter(eps):
         try:
             fn = ep.load()
         except ModuleNotFoundError:
@@ -65,12 +64,13 @@ def cancel() -> None:
     Therefore we advice to use integer-prefixes.
     """
 
+
 def print_entrypoints(group_name: str = ENTRYPOINT_GROUPNAME, filtered: bool = False):
     """print registered entrypoints."""
     eps = entry_points(group=group_name)
 
     if filtered:
-        eps = utils.fifo_filter(eps)
+        eps = fifo_filter(eps)
 
     for ep in eps:
         print(f"{ep.name}: {ep.value}")
