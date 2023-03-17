@@ -2,14 +2,16 @@
 __version__ = "1.0.0"  # poetry-dynamic-versioning substitutes this
 import warnings
 
-from sitecustomize._utils import SimpleWarnings, most_recent_unique_entries
+import sitecustomize._utils as utils
+# from sitecustomize._utils import SimpleWarnings, fifo_filter
 from sitecustomize._vendor.importlib_metadata import entry_points
 
+ENTRYPOINT_NAME = "sitecustomize"
 
-with SimpleWarnings():
-    eps = entry_points(group="sitecustomize")
+with utils.SimpleWarnings():
+    eps = entry_points(group=ENTRYPOINT_NAME)
 
-    for ep in most_recent_unique_entries(eps):
+    for ep in utils.fifo_filter(eps):
         try:
             fn = ep.load()
         except ModuleNotFoundError:
@@ -31,3 +33,44 @@ with SimpleWarnings():
             fn()
         except Exception as exc:
             warnings.warn(f"Error executing registered entrypoint {ep.name}: {exc}")
+
+
+def cancel() -> None:
+    """No-op function to cancel registered entypoints.
+
+    Imagine your project depends on a package that registers a sitecustomize-entrypoint:
+
+    In third third-party package:
+        [tool.poetry.plugins."sitecustomize"]
+        foo = "package_foo:foo"
+
+    And you register a sitecustomize-entrypoint in your own project:
+        [tool.poetry.plugins."sitecustomize"]
+        bar = "package_bar:bar"
+
+    You can guarantee the ordering, bv canceling the registered entrypoints
+    and re-registering them in the order you want:
+
+    in our own pyproject.toml:
+
+        [tool.poetry.plugins."sitecustomize"]
+        foo = "sitecustomize:cancel"
+        bar = "sitecustomize:cancel"
+
+        1_bar = "package_bar:bar"
+        2_foo = "package_foo:foo"
+
+    But please becautioned that the ordering in your pyproject.toml is irrelevant
+    and that after parsing the names of entrypoints will be sorted alpanumerically.
+    Therefore we advice to use integer-prefixes.
+    """
+
+def print_entrypoints(group_name: str = ENTRYPOINT_NAME, filtered: bool = False):
+    """print registered entrypoints."""
+    eps = entry_points(group=group_name)
+
+    if filtered:
+        eps = utils.fifo_filter(eps)
+
+    for ep in eps:
+        print(f"{ep.name}: {ep.value}")

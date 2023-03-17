@@ -2,7 +2,37 @@
 import typing as tp
 import warnings
 
-from ._vendor.importlib_metadata import EntryPoints
+
+if tp.TYPE_CHECKING:
+
+    class NamedObject(tp.Protocol):
+        name: str
+
+def fifo_filter(
+    ordered_list: tp.List["NamedObject"]) -> tp.List["NamedObject"]:
+    """Remove duplicate entries from an ordered list,
+    preserving initial ordering but removing previously seen entries.
+
+    Example:
+
+        >>> fifo_filter([1, 2, 3, 1])
+          [2, 3, 1]
+
+    This allows you to override the ordering of a registered entrypoint
+    in your own pyproject.toml.
+    """
+    fifo_dict : tp.Dict[str, "NamedObject"] = {}  # dict is ordered since python3.6
+
+    for ep in ordered_list:
+
+        # remove pre-existing entry
+        if ep.name in fifo_dict:
+            del fifo_dict[ep.name]
+
+        # append new entry at the end
+        fifo_dict[ep.name] = ep
+
+    return list(fifo_dict.values())
 
 
 class SimpleWarnings:
@@ -17,20 +47,3 @@ class SimpleWarnings:
     @staticmethod
     def simple_warning_format(msg, *args, **kwargs):
         return f"Warning from sitecustomize.py: {msg}\n"
-
-
-def most_recent_unique_entries(
-    ordered_list: tp.List[EntryPoints],
-) -> tp.List[EntryPoints]:
-    """Remove duplicate entries from an ordered list,
-    preserving initial ordering but removing previously seen entries.
-
-    Example:
-
-        >>> most_recent_unique_entries([1, 2, 3, 1])
-          [2, 3, 1]
-
-    This allows you to override the ordering of a registered entrypoint
-    in your own pyproject.toml.
-    """
-    return {ep.name: ep for ep in ordered_list}.values()

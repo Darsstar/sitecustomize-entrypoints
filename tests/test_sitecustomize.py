@@ -11,14 +11,16 @@ def test_import_sitecustomize():
         assert False
 
 
-def most_recent_unique_entries():
-    from sitecustomize._utils import most_recent_unique_entries
+def test_cancel():
+    from sitecustomize import cancel
 
-    assert most_recent_unique_entries([]) == []
-    assert most_recent_unique_entries([1]) == [1]
-    assert most_recent_unique_entries([1, 1, 1]) == [1]
+    assert cancel() is None
 
-    assert most_recent_unique_entries([1, 2]) == [1, 2]
-    assert most_recent_unique_entries([1, 2, 1]) == [2, 1]
-    assert most_recent_unique_entries([1, 2, 2, 1]) == [2, 1]
-    assert most_recent_unique_entries([1, 2, 3, 3, 2, 1]) == [3, 2, 1]
+
+def test_print_entrypoints():
+    # unsure how to properly unit-test this.
+    from sitecustomize import print_entrypoints
+
+    assert print_entrypoints() is None
+    assert print_entrypoints(filtered=True) is None
+    assert print_entrypoints(filtered=False) is None

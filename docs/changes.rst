@@ -6,6 +6,11 @@ Changelog
 Unreleased
 ----------
 
+- Add ``print_entrypoints``-function to easily output a list an registered entrypoints. [WouterVH]
+
+- Add ``cancel``-function that you can use in your own ``pyproject.toml`` to
+  override pre-existing entrypoints so you can re-order them. [WouterVH]
+
 - Avoid executing a registered entrypoint more than once,
   even when it was registered multiple times. [WouterVH]
 
