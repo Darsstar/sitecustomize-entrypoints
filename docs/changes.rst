@@ -6,6 +6,8 @@ Changelog
 Unreleased
 ----------
 
+- Use a constant ``ENTRYPOINT_NAME``. [WouterVH]
+
 - Add ``print_entrypoints``-function to easily output a list an registered entrypoints. [WouterVH]
 
 - Add ``cancel``-function that you can use in your own ``pyproject.toml`` to
