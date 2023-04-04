@@ -1,10 +1,17 @@
-Changelog
-=========
-.. _changes:
+# Changelog
+
+All notable changes to this project will be documented in this file.
 
 
-Unreleased
-----------
+## Unreleased (YYYY-MM-DD)
+
+- Add colorful badges to readme. [WouterVH]
+
+- Add ``ruff`` as dev-dependency. [WouterVH]
+
+- Add github-action for [testing](https://github.com/Darsstar/sitecustomize-entrypoints/actions/workflows/testing.yaml). [WouterVH]
+
+- Add github-action for [linting](https://github.com/Darsstar/sitecustomize-entrypoints/actions/workflows/linting.yaml). [WouterVH]
 
 - Use a constant ``ENTRYPOINT_GROUPNAME``. [WouterVH]
 
@@ -29,15 +36,13 @@ Unreleased
 - Avoid breaking when a registered entrypoint throws an ``AttributeError``. [WouterVH]
 
 
-1.0.0 (2023-03-10)
-------------------
+## 1.0.0 (2023-03-10)
 
 - Avoid breaking when a registered entrypoint throws an error when executed [WouterVH]
 
 - Avoid breaking when a registered entrypoint cannot be found,  e.g. renamed function. [WouterVH]
 
 
-0.1.0 (2022-04-19)
-------------------
+## 0.1.0 (2022-04-19)
 
 - Package created by [Dos Moonen <d.moonen@nki.nl>]

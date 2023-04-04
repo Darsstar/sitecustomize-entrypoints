@@ -19,8 +19,42 @@ target_version = ["py310"]
 include = '\.py$'          # regex -> needs single-quotes
 
 
+[tool.coverage.html]
+directory = "var/html/coverage"
+
+[tool.coverage.xml]
+output = "var/html/coverage/coverage.xml"
+
+[tool.coverage.report]
+# cfr. https://coverage.readthedocs.io/en/coverage-4.2/excluding.html
+exclude_lines = [
+  "pragma: no cover",
+  # "raise AssertionError",
+  # "raise NotImplementedError",
+  # "if 0:",
+  # "if __name__ == .__main__.:",
+]
+include = ["src/*"]
+
+[tool.coverage.run]
+branch = true
+data_file = "var/cache/coverage/coverage.db" # defaults to .coverage
+omit = ["src/sitecustomize/_vendor/*"]
+
+
 [tool.flake8]
 max_line_length = 88
+
+
+[tool.mypy]
+# cfr https://mypy.readthedocs.io/en/stable/config_file.html#using-a-pyproject-toml-file
+cache_dir = "var/cache/mypy"
+exclude = "^src/sitecustomize/_vendor/"
+ignore_missing_imports = true
+pretty = true                           # more verbose multiline output
+show_column_numbers = true
+show_error_codes = true
+show_error_context = true
 
 
 [tool.poetry]
@@ -37,8 +71,8 @@ maintainers = [
   "Wouter Vanden Hove <wouter@libranet.eu>",
 ]
 license = "MIT"
-readme = "README.md"
-documentation = "https://github.com/Darsstar/sitecustomize-entrypoints"
+readme = "docs/readme.md"
+documentation = "https://sitecustomize-entrypoints.readthedocs.io"
 homepage = "https://github.com/Darsstar/sitecustomize-entrypoints"
 repository = "https://github.com/Darsstar/sitecustomize-entrypoints"
 classifiers = [
@@ -64,10 +98,11 @@ python = ">=3.7.2"
 [tool.poetry.group.dev.dependencies]
 black = ">=23.1.0"
 flake8-bugbear = ">=23.2.13"
-flake8-pyproject = ">=1.2.2"
+flake8-pyproject = ">=0.0"
 mypy = ">=1.1.1"
 pyroma = ">=4.2"
 pytest = ">=7.2.1"
+ruff = ">=0.0.260"
 
 [tool.poetry.group.docs.dependencies]
 autoapi = ">=2.0.1"
@@ -77,6 +112,9 @@ Sphinx = ">=4.4.0"
 sphinx-autoapi = ">=1.8.4"
 sphinx-rtd-theme = ">=1.0.0"
 
+[tool.poetry.group.testing.dependencies]
+pytest = ">=7.0"
+pytest-cov = ">=4.0.0"
 
 [tool.poetry-dynamic-versioning]
 enable = true
@@ -86,9 +124,13 @@ files = ["src/*/__init__.py"]
 
 
 [tool.pytest.ini_options]
-addopts = "--junit-xml='var/coverage/pytest.xml'"
+addopts = "--junit-xml='var/html/coverage/pytest.xml'"
 cache_dir = "var/cache/pytest"
 testpaths = ["tests"]
+
+
+[tool.ruff]
+cache-dir = "var/cache/ruff" # relative to this file
 
 
 [tool.vendoring]
