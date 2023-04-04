@@ -45,23 +45,23 @@ jobs:
 
             # - name: Flake8
             #   run: |
-            #       flake8 docs src tests
+            #       poetry run flake8 docs src tests
 
             # - name: Ruff
             #   run: |
-            #       ruff check docs src tests
+            #       poetry run ruff check docs src tests
 
             # - name: Pylint
             #   run: |
-            #       pylint src tests
+            #       poetry run pylint src tests
 
             # - name: Mypy
             #   run: |
-            #       mypy src tests
+            #       poetry run mypy src tests
 
             - name: Pyroma
               run: |
-                  pyroma .
+                  poetry run pyroma .
 
             - name: Check poetry
               run: |
