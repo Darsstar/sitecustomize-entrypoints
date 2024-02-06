@@ -9,8 +9,8 @@
 # character.
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
+build-backend = "poetry_dynamic_versioning.backend"
 
 
 [tool.black]
@@ -59,7 +59,7 @@ show_error_context = true
 
 [tool.poetry]
 name = "sitecustomize-entrypoints"
-version = "0.1.0"
+version = "0.0.0"
 description = "Sitecustomize-module that executes all correctly registered ``sitecustomize``-entypoints."
 keywords = ["entrypoints", "sitecustomize"]
 authors = [
@@ -105,6 +105,9 @@ pyroma = ">=4.2"
 pytest = ">=7.2.1"
 ruff = ">=0.0.260"
 
+[tool.poetry.group.docs]
+optional = true
+
 [tool.poetry.group.docs.dependencies]
 autoapi = ">=2.0.1"
 myst-parser = ">=1.0.0"
@@ -112,6 +115,9 @@ recommonmark = ">=0.7.1"
 Sphinx = ">=4.4.0"
 sphinx-autoapi = ">=1.8.4"
 sphinx-rtd-theme = ">=1.0.0"
+
+[tool.poetry.group.testing]
+optional = true
 
 [tool.poetry.group.testing.dependencies]
 pytest = ">=7.0"

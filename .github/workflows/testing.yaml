@@ -69,7 +69,7 @@ jobs:
 
             - name: Install packages
               run: |
-                  poetry install
+                  poetry install --sync --with testing
 
             - name: Run tests with coverage
               run: |

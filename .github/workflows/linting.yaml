@@ -36,7 +36,7 @@ jobs:
 
             - name: Install
               run: |
-                  poetry install
+                  poetry install --sync 
 
             - name: Show info
               run: |
