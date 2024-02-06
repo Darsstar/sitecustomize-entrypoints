@@ -1,5 +1,9 @@
 """sitecustomize."""
-__version__ = "1.0.0"  # poetry-dynamic-versioning substitutes this
+
+# poetry-dynamic-versioning substitutes this
+__version__ = "0.0.0"
+__version_tuple__ = (0, 0, 0)
+
 import warnings
 
 from sitecustomize._utils import SimpleWarning, fifo_filter
